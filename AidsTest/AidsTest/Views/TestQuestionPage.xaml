@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AidsTest.Views.TestQuestionPage"
+           
+             BackgroundImageSource="bkg.png">
+    <ContentPage.Padding>
+        <OnPlatform 	x:TypeArguments="Thickness" 
+iOS="10, 20, 10, 0" 
+Android="10, 0" 
+WinPhone="10, 0" />
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+           <ContentView x:Name="contView">
+                <ContentView.Content>
+                    <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="70" />
+                </Grid.RowDefinitions>
+                     <StackLayout>
+                        
+                            <StackLayout x:Name ="testBlock"  >
+                                <ImageButton x:Name ="logoBtn" 
+                                            Margin="50,50,50,30"
+                                            Source="logo_aids.png"
+                                            VerticalOptions="Center" 
+                                            BackgroundColor="Transparent"/>
+                                <StackLayout x:Name="questForSl" 
+                                             Orientation="Horizontal" 
+                                             Margin="20,0,20,0">
+                                    <Image x:Name="sexPic"/>
+                                    <Label Text="Вопрос для"  
+                                               Margin="10,10,0,0"/>
+                                    <Label  x:Name ="sexLbl"  
+                                            Text="{Binding PrintableSex}"
+                                               Margin="0,10,10,10"   />
+                               </StackLayout> 
+                               
+                            <StackLayout x:Name ="mainsl"  
+                                         Margin="20,0"  >
+                                <Label x:Name="questionLbl" 
+                                       Margin="10,10,10,20" 
+                                       FontSize="22"
+                                       FontAttributes="Bold"
+                                       Text="{Binding CurrentQuestion.QuestionText}"
+                                      />
+                                   
+                                    <ListView ItemsSource="{Binding CurrentQuestion.Answers}"
+                                              x:Name="answerLc"
+                                              IsPullToRefreshEnabled="True" 
+                                              SelectionMode="Single" 
+                                              ItemSelected="answerLc_ItemSelected"
+                                              HasUnevenRows="True" 
+                                              SelectedItem="{Binding Mode=TwoWay, Path=Answer}"  
+                                              HeightRequest="250">
+
+                                         <ListView.ItemTemplate>
+                                             
+                                                <DataTemplate >
+                                                    <ViewCell   >
+                                                        <StackLayout Orientation="Horizontal">
+                                                        <Frame VerticalOptions="Center"
+                                                                BackgroundColor ="Gainsboro"
+                                                                Padding ="8" 
+                                                                Margin="10,0,0,0">
+                                                               <BoxView WidthRequest="10" 
+                                                                        HeightRequest="10"
+                                                                        BackgroundColor="{Binding Color}">
+                                                                </BoxView>
+                                                         </Frame>
+                                                        <Label Text="{Binding AnswerText}"
+                                                               HorizontalTextAlignment="Start"
+                                                               VerticalTextAlignment="Center"
+                                                               Margin="10" />
+                                                           </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                   
+                                </StackLayout>
+                            </StackLayout>
+                         <Label x:Name="AlertLbl" 
+                                TextColor="Red"/>
+                         
+                        </StackLayout> 
+                        <Button x:Name="nextQBtn" 
+                                Grid.Row="1"
+                                 FontSize="16"
+                                 FontAttributes="Bold"
+                                 VerticalOptions="Start"
+                                 WidthRequest="150"
+                                 Text="Далее" 
+                                 Clicked="nextBtn_Clicked"
+                                 HorizontalOptions="Center"/>
+                    </Grid>
+                </ContentView.Content>
+           
+            </ContentView>
+
+    </ContentPage.Content>
+</ContentPage>

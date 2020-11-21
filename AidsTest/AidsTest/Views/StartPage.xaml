@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AidsTest.Views.StartPage"
+             BackgroundImageSource="bkg.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="120.jpg" Aspect="AspectFill" HeightRequest="100"/>
+            
+        
+        <Image x:Name ="logoBtn"      Margin="50"
+                                            Source="logo_aids.png"
+               Aspect="AspectFit"
+               WidthRequest="250"
+                                            VerticalOptions="Center" 
+                                            BackgroundColor="Transparent"/>
+            <Label x:Name ="results" Text="Отвечать на вопросы теста необходимо по очереди"
+                                       TextColor="Black" 
+                                       FontSize="Title"  
+                                       FontAttributes="Bold"/>
+                            
+                <!--<Label Text="Первым/ой отвечает" />-->
+                <Label  x:Name ="sexLbl" 
+                        HorizontalTextAlignment="Center" 
+                        Text="{Binding Gender}" 
+                        HorizontalOptions="Center"
+                        Margin="0,30,0,50"
+                        />
+                
+            <Button Text="Далее" 
+                    WidthRequest="150"
+                    HorizontalOptions="Center"
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    Command="{Binding RoutToPage}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
