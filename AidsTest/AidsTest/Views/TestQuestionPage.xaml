@@ -17,12 +17,12 @@ WinPhone="10, 0" />
                     <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="70" />
+                    <RowDefinition Height="100" />
                 </Grid.RowDefinitions>
                      <StackLayout>
                         
                             <StackLayout x:Name ="testBlock"  >
-                                <ImageButton x:Name ="logoBtn" 
+                                <Image x:Name ="logoBtn" 
                                             Margin="50,50,50,30"
                                             Source="logo_aids.png"
                                             VerticalOptions="Center" 
@@ -42,7 +42,7 @@ WinPhone="10, 0" />
                                          Margin="20,0"  >
                                 <Label x:Name="questionLbl" 
                                        Margin="10,10,10,20" 
-                                       FontSize="22"
+                                       FontSize="20"
                                        FontAttributes="Bold"
                                        Text="{Binding CurrentQuestion.QuestionText}"
                                       />

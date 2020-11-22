@@ -27,7 +27,8 @@
         <!--<StackLayout x:Name ="premainsl"
                                     Margin="50" >-->
             <Label  
-               FontSize="Title"   
+               FontSize="20" 
+                FontAttributes="Bold"
                VerticalOptions="End">
                 <Label.FormattedText>
                     <FormattedString>
@@ -47,6 +48,7 @@
                      />
         <Label Text="УЗНАЙТЕ УРОВЕНЬ СОВМЕСТИМОСТИ ВАШЕЙ ПАРЫ " 
                    Grid.Row="2"
+               FontSize="18"
                    TextColor="DimGray" 
                VerticalOptions="Center"/>
 

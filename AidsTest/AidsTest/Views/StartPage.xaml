@@ -16,7 +16,7 @@
                                             BackgroundColor="Transparent"/>
             <Label x:Name ="results" Text="Отвечать на вопросы теста необходимо по очереди"
                                        TextColor="Black" 
-                                       FontSize="Title"  
+                                       FontSize="22"  
                                        FontAttributes="Bold"/>
                             
                 <!--<Label Text="Первым/ой отвечает" />-->
