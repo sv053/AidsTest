@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="224">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="223">
+            <objects>
+                <viewController id="224" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="221"/>
+                        <viewControllerLayoutGuide type="bottom" id="222"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="225">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="tintColor" colorSpace="calibratedRGB" red="0.0392156862745098" green="0.37647058823529411" blue="1" alpha="1"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="228" translatesAutoresizingMaskIntoConstraints="NO" image="AidsImages" highlightedImage="logo_aids.png" misplaced="YES">
+                                <rect key="frame" x="205" y="116" width="400" height="400"/>
+                                <constraints>
+                                    <constraint id="9747" firstAttribute="width" secondItem="228" secondAttribute="height" multiplier="1:1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2803" translatesAutoresizingMaskIntoConstraints="NO" text="ТЕСТ НА СОВМЕСТИМОСТЬ" misplaced="YES">
+                                <rect key="frame" x="-2214" y="286" width="2273" height="347"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16" weight="heavy"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <color key="highlightedColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <constraints>
+                                    <constraint id="8013" firstAttribute="width" secondItem="2803" secondAttribute="height" multiplier="230:19"/>
+                                </constraints>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.23529411764705882" green="0.37254901960784315" blue="0.62745098039215685" alpha="1"/>
+                        <constraints>
+                            <constraint id="2812" firstItem="228" firstAttribute="centerX" secondItem="225" secondAttribute="centerX"/>
+                            <constraint id="2819" firstItem="228" firstAttribute="centerY" secondItem="225" secondAttribute="centerY"/>
+                            <constraint id="2877" firstItem="228" firstAttribute="centerX" secondItem="225" secondAttribute="centerX"/>
+                            <constraint id="3776" firstItem="2803" firstAttribute="centerX" secondItem="225" secondAttribute="centerX"/>
+                            <constraint id="7634" firstItem="2803" firstAttribute="centerX" secondItem="228" secondAttribute="centerX" constant="-1482.5"/>
+                            <constraint id="7635" firstItem="2803" firstAttribute="centerX" secondItem="228" secondAttribute="centerX" constant="-1482.5"/>
+                            <constraint id="7636" firstItem="2803" firstAttribute="centerY" secondItem="228" secondAttribute="centerY" constant="143.5"/>
+                            <constraint id="7637" firstItem="2803" firstAttribute="centerY" secondItem="228" secondAttribute="centerY" constant="143.5"/>
+                            <constraint id="7886" firstItem="2803" firstAttribute="centerX" secondItem="228" secondAttribute="centerX" constant="-1482.5"/>
+                            <constraint id="8044" firstItem="2803" firstAttribute="centerY" secondItem="228" secondAttribute="centerY" constant="143.5"/>
+                            <constraint id="8047" firstItem="2803" firstAttribute="centerX" secondItem="228" secondAttribute="centerX" constant="-1482.5"/>
+                            <constraint id="8115" firstItem="2803" firstAttribute="leading" secondItem="225" secondAttribute="leadingMargin" constant="-2234"/>
+                            <constraint id="9098" firstItem="228" firstAttribute="centerX" secondItem="225" secondAttribute="centerX" constant="11"/>
+                            <constraint id="9099" firstAttribute="centerY" secondItem="228" secondAttribute="centerY" constant="11"/>
+                            <constraint id="9466" firstItem="228" firstAttribute="centerY" secondItem="225" secondAttribute="centerY" constant="3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="226" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-251" y="-377"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_aids.png" width="116" height="56"/>
+        <image name="AidsImages" width="400" height="400"/>
+    </resources>
+    <color key="tintColor" colorSpace="calibratedRGB" red="0.54117647058823526" green="0.61960784313725492" blue="0.76470588235294112" alpha="1"/>
+</document>

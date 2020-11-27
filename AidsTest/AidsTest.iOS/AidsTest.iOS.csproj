@@ -14,7 +14,7 @@
     <AssemblyName>AidsTest.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <ProvisioningType>automatic</ProvisioningType>
+    <ProvisioningType>manual</ProvisioningType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,6 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -35,7 +36,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
+    <MtouchArch>
+    </MtouchArch>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
+    <MtouchFloat32>true</MtouchFloat32>
+    <OptimizePNGs>true</OptimizePNGs>
+    <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,15 +65,30 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Distribution: Aleksandr Korovaev (4PTKV6KA79)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <OptimizePNGs>true</OptimizePNGs>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
+    <CodesignProvision>compPPN2</CodesignProvision>
+    <MtouchLink>SdkOnly</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LaunchViewController.cs" />
+    <Compile Include="LaunchViewController.designer.cs">
+      <DependentUpon>LaunchViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="LaunchViewController.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -121,7 +142,75 @@
     <BundleResource Include="Resources\xamarin_logo.png" />
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets1.xcassets\AidsImages.imageset\logoAids.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AidsImages.imageset\logoAids1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AidsImages.imageset\logoAids2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AidsImages.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_1201.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_402.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_581.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_801.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets1.xcassets\AppIcons.appiconset\_87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -160,4 +249,15 @@
   <ItemGroup>
     <BundleResource Include="Resources\sex_m.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bkg111.png" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties TriggeredFromHotReload="False" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

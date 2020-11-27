@@ -34,6 +34,9 @@ namespace AidsTest.Views
             _viewModel = new QuestionViewModel();
             Questionnaire = new Questionnaire();
             Questions = Questionnaire.AllStartQuestions;
+            //Questions = new List<Question>();
+            //Questions.Add(Questionnaire.AllStartQuestions[0]);
+            //Questions.Add(Questionnaire.AllStartQuestions[1]);
             QuestionsWithAnswers = new List<Question>();
          //   genderCounter = new GenderCounter();
             SS = GenderCounter.SexStarted;
@@ -42,10 +45,7 @@ namespace AidsTest.Views
              printSex(SS);
             BindingContext = this;
         }
-        //private void StartTest(object sender, EventArgs e)
-        //{
-        //   LoadQuestionAndSex(CurrentQuestion);
-        //}
+       
         private string printSex(bool b)
         {
              OnAppearing();
@@ -74,9 +74,7 @@ namespace AidsTest.Views
             questionLbl.Text = CurrentQuestion.QuestionText;
             answerLc.ItemsSource = CurrentQuestion.Answers;
             await Task.WhenAll(mainsl.FadeTo(0, 500), mainsl.FadeTo(1, 500));
-
-           
-            //TapGestureRecognizer tapGesture = new TapGestureRecognizer();
+           //TapGestureRecognizer tapGesture = new TapGestureRecognizer();
             //tapGesture.Tapped += OnSlViewTapped;
             ////tapGesture.CommandParameter = args;
             ////tapGesture.Command = new Command(MoveToNextQuestion);
@@ -87,21 +85,24 @@ namespace AidsTest.Views
         async protected override void OnAppearing()
         {
             base.OnAppearing();
-            sexPic.AnchorX = 0;
-            sexLbl.AnchorX = 0;
-            sexPic.RotationY = 180;
-            sexLbl.RotationY = 180;
-            await sexPic.RotateYTo(0, 500, Easing.CubicOut);
-            await sexLbl.RotateYTo(0, 500, Easing.CubicOut);
-            sexPic.AnchorX = 0.5;
-            sexLbl.AnchorX = 0.5;
+            //sexPic.AnchorX = 0;
+            //sexLbl.AnchorX = 0;
+            questForSl.AnchorX = 0;
+            //sexPic.RotationY = 180;
+            //sexLbl.RotationY = 180;
+            questForSl.RotationY = 180;
+            //await sexPic.RotateYTo(0, 500, Easing.CubicOut);
+            //await sexLbl.RotateYTo(0, 500, Easing.CubicOut);
+            await questForSl.RotateYTo(0, 500, Easing.CubicOut);
+            //sexPic.AnchorX = 0.5;
+            //sexLbl.AnchorX = 0.5;
+            questForSl.AnchorX = 0.5;
         }
 
     private void ShowResults()
         {
-            
-            questForSl.IsVisible = false;
-            nextQBtn.IsVisible = false;
+          questForSl.IsVisible = false;
+          //  nextQBtn.IsVisible = false;
             mainsl.Children.Clear();
             ResultsCount texts = new ResultsCount();
             ScoreCounter scoreCounter = new ScoreCounter(QuestionsWithAnswers);
@@ -113,28 +114,32 @@ namespace AidsTest.Views
           //  int mult = _viewModel.CheckCoincidences(QuestionsWithAnswers);
 
             mainsl.Children.Add(new Label() { Text = "Результаты: " });
-           
-            mainsl.Children.Add(new Label()
+            ScrollView scrollView = new ScrollView()
             {
-              //  Text = texts.ChooseResultString(scoreCounter.FirstPersonScore + mult * 2, scoreCounter.SecondPersonScore + mult * 2)
-                Text = texts.ChooseResultString(scoreCounter.FirstPersonScore , scoreCounter.SecondPersonScore)
-            });
+                Content = new Label()
+                {
+                    //  Text = texts.ChooseResultString(scoreCounter.FirstPersonScore + mult * 2, scoreCounter.SecondPersonScore + mult * 2)
+                    Text = texts.ChooseResultString(scoreCounter.FirstPersonScore, scoreCounter.SecondPersonScore)
+                },
+                VerticalScrollBarVisibility = ScrollBarVisibility.Default
+        };
+        mainsl.Children.Add(scrollView);
+            //mainsl.Children.Add(new Label()
+            //{
+            //  //  Text = texts.ChooseResultString(scoreCounter.FirstPersonScore + mult * 2, scoreCounter.SecondPersonScore + mult * 2)
+            //    Text = texts.ChooseResultString(scoreCounter.FirstPersonScore , scoreCounter.SecondPersonScore)
+            //});
 
-            if(k < 2) 
-            { 
-                Button returnBtn = new Button();
-                returnBtn.Text = "Повторить тест";
-                returnBtn.Margin = 30;
-                returnBtn.HorizontalOptions = LayoutOptions.Center;
-                returnBtn.Clicked += TestQuestionPage_Clicked;
-                mainsl.Children.Add(returnBtn);
-            }
-            k++;
-        }
+            nextQBtn.Clicked -= nextBtn_Clicked;
+            nextQBtn.Text = "ПОВТОРИТЬ ТЕСТ";
+            nextQBtn.Clicked += TestQuestionPage_Clicked;
+         }
 
         private async void TestQuestionPage_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("startPage");
+            QuestionsWithAnswers = new List<Question>();
+         //   await Shell.Current.GoToAsync("startPage");
+            await Shell.Current.GoToAsync($"{nameof(StartPage)}");
         }
 
         private void nextBtn_Clicked(object sender, EventArgs e)
@@ -146,9 +151,7 @@ namespace AidsTest.Views
             if (CurrentQuestion.Answers.Where(c => c.Color.Name == "ffb22222").Any())
             {
                 QuestionsWithAnswers.Add(CurrentQuestion);
-
-               
-                if (Questions.Count > 1)
+              if (Questions.Count > 1)
                 {
                     LoadQuestionAndSex(Questions[0]);
                     Questions.RemoveAt(0);

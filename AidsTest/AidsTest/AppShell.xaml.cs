@@ -13,7 +13,7 @@ namespace AidsTest
             //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(TestQuestionPage), typeof(TestQuestionPage));
             Routing.RegisterRoute("startPage", typeof(StartPage));
-            Routing.RegisterRoute("startPage1", typeof(StartPage));
+            Routing.RegisterRoute(nameof(StartPage), typeof(StartPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

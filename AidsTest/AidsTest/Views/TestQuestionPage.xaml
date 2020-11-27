@@ -17,13 +17,13 @@ WinPhone="10, 0" />
                     <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="100" />
+                    <RowDefinition Height="110" />
                 </Grid.RowDefinitions>
                      <StackLayout>
                         
                             <StackLayout x:Name ="testBlock"  >
                                 <Image x:Name ="logoBtn" 
-                                            Margin="50,50,50,30"
+                                            Margin="80,50,80,10"
                                             Source="logo_aids.png"
                                             VerticalOptions="Center" 
                                             BackgroundColor="Transparent"/>
@@ -39,13 +39,13 @@ WinPhone="10, 0" />
                                </StackLayout> 
                                
                             <StackLayout x:Name ="mainsl"  
-                                         Margin="20,0"  >
+                                         Margin="20,10" 
+                                         >
                                 <Label x:Name="questionLbl" 
-                                       Margin="10,10,10,20" 
-                                       FontSize="20"
+                                       Margin="10" 
+                                       FontSize="Subtitle"
                                        FontAttributes="Bold"
-                                       Text="{Binding CurrentQuestion.QuestionText}"
-                                      />
+                                       Text="{Binding CurrentQuestion.QuestionText}"   />
                                    
                                     <ListView ItemsSource="{Binding CurrentQuestion.Answers}"
                                               x:Name="answerLc"
@@ -54,16 +54,19 @@ WinPhone="10, 0" />
                                               ItemSelected="answerLc_ItemSelected"
                                               HasUnevenRows="True" 
                                               SelectedItem="{Binding Mode=TwoWay, Path=Answer}"  
-                                              HeightRequest="250">
+                                              SeparatorVisibility="None"
+                                              BackgroundColor="Transparent"
+                                              VerticalScrollBarVisibility="Default">
 
                                          <ListView.ItemTemplate>
-                                             
-                                                <DataTemplate >
+                                              <DataTemplate >
                                                     <ViewCell   >
+                                                
                                                         <StackLayout Orientation="Horizontal">
                                                         <Frame VerticalOptions="Center"
                                                                 BackgroundColor ="Gainsboro"
                                                                 Padding ="8" 
+                                                               HasShadow="False"
                                                                 Margin="10,0,0,0">
                                                                <BoxView WidthRequest="10" 
                                                                         HeightRequest="10"
@@ -73,9 +76,11 @@ WinPhone="10, 0" />
                                                         <Label Text="{Binding AnswerText}"
                                                                HorizontalTextAlignment="Start"
                                                                VerticalTextAlignment="Center"
-                                                               Margin="10" />
+                                                               Margin="10" 
+                                                               />
                                                            </StackLayout>
-                                                </ViewCell>
+                                                
+                                            </ViewCell>
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
                                     </ListView>
@@ -88,11 +93,11 @@ WinPhone="10, 0" />
                         </StackLayout> 
                         <Button x:Name="nextQBtn" 
                                 Grid.Row="1"
-                                 FontSize="16"
+                                 FontSize="20"
                                  FontAttributes="Bold"
                                  VerticalOptions="Start"
-                                 WidthRequest="150"
-                                 Text="Далее" 
+                                 WidthRequest="200"
+                                 Text="ДАЛЕЕ" 
                                  Clicked="nextBtn_Clicked"
                                  HorizontalOptions="Center"/>
                     </Grid>

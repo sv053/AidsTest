@@ -8,7 +8,7 @@
             <Image Source="120.jpg" Aspect="AspectFill" HeightRequest="100"/>
             
         
-        <Image x:Name ="logoBtn"      Margin="50"
+        <Image x:Name ="logoBtn"      Margin="30"
                                             Source="logo_aids.png"
                Aspect="AspectFit"
                WidthRequest="250"
@@ -16,7 +16,9 @@
                                             BackgroundColor="Transparent"/>
             <Label x:Name ="results" Text="Отвечать на вопросы теста необходимо по очереди"
                                        TextColor="Black" 
-                                       FontSize="22"  
+                                       WidthRequest="300"
+                   HorizontalOptions="Center"
+                                       FontSize="Title"  
                                        FontAttributes="Bold"/>
                             
                 <!--<Label Text="Первым/ой отвечает" />-->
@@ -24,11 +26,12 @@
                         HorizontalTextAlignment="Center" 
                         Text="{Binding Gender}" 
                         HorizontalOptions="Center"
-                        Margin="0,30,0,50"
+                        Margin="0,50,0,50"
+                        FontSize="Subtitle"
                         />
                 
-            <Button Text="Далее" 
-                    WidthRequest="150"
+            <Button Text="ДАЛЕЕ" 
+                    WidthRequest="120"
                     HorizontalOptions="Center"
                     FontSize="Subtitle"
                     FontAttributes="Bold"
